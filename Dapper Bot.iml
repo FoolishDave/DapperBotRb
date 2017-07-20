@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="jdk" jdkName="ruby-2.4.1-p111 (1)" jdkType="RUBY_SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="addressable (v2.5.1, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ansi (v1.5.0, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ast (v2.3.0, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="buftok (v0.2.0, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="configatron (v4.5.1, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="discordrb (v3.2.1, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="discordrb-webhooks (v3.2.0.1, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="domain_name (v0.5.20170404, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="equalizer (v0.0.11, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="event_emitter (v0.2.5, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="faraday (v0.11.0, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ffi (v1.9.18, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="http (v2.2.2, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="http-cookie (v1.0.3, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="http-form_data (v1.0.3, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="http_parser.rb (v0.6.0, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="iso8601 (v0.9.1, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="memoizable (v0.4.2, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mime-types (v3.1, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mime-types-data (v3.2016.0521, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multipart-post (v2.0.0, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="naught (v1.1.0, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net_http_timeout_errors (v0.3.0, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="netrc (v0.11.0, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="oga (v2.10, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="opus-ruby (v1.0.1, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="public_suffix (v2.0.5, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rbnacl (v3.4.0, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rest-client (v2.0.2, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-ll (v2.1.2, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="simple_oauth (v0.3.1, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.6, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="twitter (v6.1.0, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="unf (v0.1.4, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="unf_ext (v0.0.7.4, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="video_info (v2.7, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="websocket (v1.2.4, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="websocket-client-simple (v0.3.0, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+  </component>
+</module>
