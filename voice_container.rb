@@ -25,10 +25,7 @@ module DapperVoice
         event.voice.play_io(stdout)
       else
         stdin,stdout,wt_thr = Open3.popen2("/usr/local/bin/youtube-dl -f 251 #{url} -o -")
-        command = "ffmpeg -loglevel 0 -i - -f s161e -ar 48000 -ac 2 #{event.voice.encoder.filter_volume_argument} pipe:1"
-        ret_io, writer = IO.pipe
-        spawn(command, in: stdout, out:writer)
-        event.voice.play ret_io
+        event.voice.play_io stdout
       end
     end
   end
