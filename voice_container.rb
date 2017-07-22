@@ -1,5 +1,6 @@
 require 'open3'
 require 'video_info'
+require 'os'
 module DapperVoice
   extend Discordrb::EventContainer
   extend Discordrb::Commands::CommandContainer
@@ -15,7 +16,11 @@ module DapperVoice
   command :play do |event, url|
     event << 'Yeah attempting to play that shit.'
     $twitter_client.update("#{event.user.nick || event.user.username} thinks they're a great DJ playing #{VideoInfo.new(url).title} in the server #{event.server.name}")
-    stdin,stdout,wt_thr = Open3.popen2("youtube-dl -f 251 #{url} -o -")
+    if OS.windows?    
+      stdin,stdout,wt_thr = Open3.popen2("youtube-dl -f 251 #{url} -o -")
+    else
+      stdin,stdout,wt_thr = Open3.popen2("/usr/local/bin/youtube-dl -f 251 #{url} -o -")
+    end
     event.voice.play_io(stdout)
   end
 

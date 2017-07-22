@@ -1,4 +1,4 @@
-::RBNACL_LIBSODIUM_GEM_LIB_PATH = "c:/libsodium/libsodium.dll"
+#::RBNACL_LIBSODIUM_GEM_LIB_PATH = "c:/libsodium/libsodium.dll"
 require 'discordrb'
 require 'twitter'
 require 'configatron'
