@@ -1,4 +1,5 @@
-#::RBNACL_LIBSODIUM_GEM_LIB_PATH = "c:/libsodium/libsodium.dll"
+require 'os'
+::RBNACL_LIBSODIUM_GEM_LIB_PATH = "c:/libsodium/libsodium.dll" if OS.windows?
 require 'discordrb'
 require 'twitter'
 require 'configatron'
@@ -86,7 +87,7 @@ end
 
 $twitter_client = Twitter::REST::Client.new({:consumer_key => configatron.twitter_cons_key, :consumer_secret => configatron.twitter_cons_sec, :access_token => configatron.twitter_token, :access_token_secret => configatron.twitter_token_sec})
 
-bot = Discordrb::Commands::CommandBot.new token: configatron.token, client_id: 172421632223084545, :prefix => ['🥄','!','=','🔥','<:Symbol:230139293509746688>'], :spaces_allowed => true
+bot = Discordrb::Commands::CommandBot.new token: configatron.token, client_id: 172421632223084545, :prefix => ['*'], :spaces_allowed => true
 bot.include! DapperEvents
 bot.include! DapperCommands
 bot.include! DapperVoice
