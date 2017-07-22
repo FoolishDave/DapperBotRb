@@ -56,4 +56,8 @@ module DapperCommands
     role = roles.find{|rol| rol.name == role_name}
     event.bot.set_role_permission(role.id,level.to_i)
   end
+
+  command :eval, permission_level: 9001, permission_messasge: "Don't use this please." do |event, evaluate_me|
+    eval evaluate_me
+  end
 end

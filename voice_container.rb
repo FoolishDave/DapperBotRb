@@ -14,7 +14,7 @@ module DapperVoice
   end
 
   command :play do |event, url|
-    event << 'Yeah attempting to play that shit.'
+    # event << 'Yeah attempting to play that shit.'
     if url.end_with? '.mp3'
       event.voice.play_file(url)
     else
@@ -32,6 +32,26 @@ module DapperVoice
 
   command :volume do |event, vol|
     event.voice.volume = vol.to_f / 100.0;
+  end
+
+  command :stop do |event|
+
+  end
+
+  command :FastForward do |event, seconds|
+    event.voice.skip(seconds.to_i)
+  end
+
+  command :Pause do |event|
+    event.voice.pause
+  end
+
+  command :Resume do |event|
+    event.voice.continue
+  end
+
+  command :Stop do |event|
+    event.voice.stop_playing
   end
 
   command :play_file do |event, file|
