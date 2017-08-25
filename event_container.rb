@@ -1,9 +1,14 @@
+require_relative 'menu_commands'
 module DapperEvents
   extend Discordrb::EventContainer
 
   ready do |event|
     event.bot.update_status('online','twitter.com/TheDapperBot','https://twitter.com/TheDapperBot')
     event.bot.set_user_permission(130151971431776256,9001)
+  end
+
+  reaction_add do |reaction_event|
+    MenuCommands.execute_command(reaction_event,reaction_event.emoji.name) unless reaction_event.user.id == 172421632223084545
   end
 
   message do |message_event|

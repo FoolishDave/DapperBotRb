@@ -1,5 +1,10 @@
+require_relative 'menu_commands'
 module DapperCommands
   extend Discordrb::Commands::CommandContainer
+
+  command :methodtest do |event|
+    DapperCommands.testing
+  end
 
   command :lewd do |event|
     event << 'You fucking whore.'
@@ -12,6 +17,21 @@ module DapperCommands
     mes.react('🇺')
     mes.react('🇳')
     mes.react('🇹')
+  end
+
+  command :SaveChannelData do |event,*args|
+    data_file = "C:\\Users\\ddogc\\AppData\\Local\\lxss\\home\\dgrougan\\rnn\\data\\train_data.txt"
+    past_mes = event.channel.history(100)
+    oldest = past_mes.last
+    past_mes.map! {|mes| "#{mes.author.username}: #{mes.content}"}
+    File.open("C:\\Users\\ddogc\\AppData\\Local\\lxss\\home\\dgrougan\\rnn\\data\\train_data.txt",'a') {|file| file.write(past_mes.to_s)}
+    while File.size(data_file).to_f / 1024000 < (args[0].to_f || 1.5)
+      past_mes = event.channel.history(100,oldest.id)
+      oldest = past_mes.last
+      past_mes.map! {|mes| "#{mes.author.username}: #{mes.content}"}
+      File.open("C:\\Users\\ddogc\\AppData\\Local\\lxss\\home\\dgrougan\\rnn\\data\\train_data.txt",'a') {|file| file.write(past_mes.to_s)}
+    end
+    'Done'
   end
 
   command :prefixes do |event|
@@ -59,5 +79,13 @@ module DapperCommands
 
   command :eval, permission_level: 9001, permission_messasge: "Don't use this please." do |event, evaluate_me|
     eval evaluate_me
+  end
+
+  command :TestMenu do |event|
+    commands = {}
+    event_mes = event.send_message '*Test Menu*'
+    commands['😀'] = Proc.new{|pr_message| puts '😀'; pr_message.message.edit("*Test Menu*\n😀")}
+    commands['😐'] = Proc.new{|pr_message| puts '😐'; pr_message.message.edit("*Test Menu*\n😐")}
+    MenuCommands.create_menu(event_mes,commands)
   end
 end
