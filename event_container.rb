@@ -7,6 +7,18 @@ module DapperEvents
   end
 
   message do |message_event|
+    if message_event.message.content.downcase == 'what'
+      message_event.channel.send_message('Chicken Butt')
+    elsif message_event.message.content.downcase == 'wat'
+      message_event.channel.send_message('Chicken Bat')
+    elsif message_event.message.content.downcase == 'when'
+      message_event.channel.send_message('Chicken Pen')
+    elsif message_event.message.content.downcase == 'where'
+      message_event.channel.send_message('Chicken Hair') 
+    end
+  end
+
+  message do |message_event|
     #bot.update_status 'Online', '🇹 🇴 🇵   🇰 🇪 🇰', nil, 0, false
     unless message_event.message.embeds.empty?
       repost_count = 0
