@@ -80,6 +80,7 @@ module DapperVoice
   end
 
   command :leave do |event|
-    event.user.voice_channel.destroy
+    event.voice.destroy
+    'Bye Felicia.'
   end
 end
