@@ -67,7 +67,13 @@ module DapperCommands
 
   command :DeclareGay do |event, *person|
     member = event.server.member(person.join(' ')[/\d+/].to_i)
-    twitter_message = "#{(event.user.nick || event.user.username)} of the server #{event.server.name} would like to declare #{member.nick || member.username || person.join(' ')} gay."
+    if member
+      callout = member.nick || member.username
+    else
+      callout = person.join(' ')
+    end
+
+    twitter_message = "#{(event.user.nick || event.user.username)} of the server #{event.server.name} would like to declare #{callout} gay."
     the_tweet = tweet(twitter_message)
     event.user.mention + " thinks that " + person.join(' ') + " is gay.\n#{the_tweet.uri}"
   end
