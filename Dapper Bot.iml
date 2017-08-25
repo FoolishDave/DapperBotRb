@@ -35,6 +35,7 @@
     <orderEntry type="library" scope="PROVIDED" name="public_suffix (v2.0.5, ruby-2.4.1-p111 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rbnacl (v3.4.0, ruby-2.4.1-p111 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rest-client (v2.0.2, ruby-2.4.1-p111 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-fann (v1.2.6, ruby-2.4.1-p111 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-ll (v2.1.2, ruby-2.4.1-p111 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simple_oauth (v0.3.1, ruby-2.4.1-p111 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.6, ruby-2.4.1-p111 (1)) [gem]" level="application" />

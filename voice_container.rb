@@ -1,6 +1,7 @@
 require 'open3'
 require 'video_info'
 require 'os'
+require_relative 'menu_commands'
 module DapperVoice
   extend Discordrb::EventContainer
   extend Discordrb::Commands::CommandContainer
@@ -59,4 +60,22 @@ module DapperVoice
     event.voice.play_file(file)
   end
 
+  command :MediaControls do |event|
+    commands = {}
+    event_mes = event.send_message '**Media Controls**'
+    commands['🔉'] = Proc.new{|pr_event| bot.voice.volume -= 0.1; bot.voice.volume = 0.0 if bot.voice.volume < 0.0; pr_event.send_message 'Volume at ' + (bot.voice.volume*100).to_s + '%'}
+    commands['🔊'] = Proc.new{|pr_event| bot.voice.volume += 0.1;  bot.voice.volume = 1.0 if bot.voice.volume > 1.0; pr_event.send_message 'Volume at ' + (bot.voice.volume*100).to_s + '%'}
+    MenuCommands.create_menu(event_mes,commands)
+  end
+
+  command :NANI do |event|
+    voice_channel = event.user.voice_channel
+    next unless voice_channel
+    event.bot.voice_connect(voice_channel)
+    event.bot.voice(voice_channel).volume = 0.25
+
+    event.voice.play_file('nani.mp3')
+    event.voice.destroy
+    'You are already dead.'
+  end
 end
