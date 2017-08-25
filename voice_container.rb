@@ -78,4 +78,8 @@ module DapperVoice
     event.voice.destroy
     'You are already dead.'
   end
+
+  command :leave do |event|
+    event.user.voice_channel.destroy
+  end
 end
