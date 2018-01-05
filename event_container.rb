@@ -26,15 +26,38 @@ module DapperEvents
   end
 
   message do |message_event|
-    if message_event.message.content.downcase == 'what'
+
+    mes = message_event.message.content
+    if mes == 'what' || mes == 'What' || mes == 'what?' || mes == 'What?'
       message_event.channel.send_message('Chicken Butt')
-    elsif message_event.message.content.downcase == 'wat'
+    elsif mes == 'wat' || mes == 'Wat' || mes == 'wat?' || mes == 'Wat?'
       message_event.channel.send_message('Chicken Bat')
-    elsif message_event.message.content.downcase == 'when'
+    elsif mes == 'when' || mes == 'When' || mes == 'when?' || mes == 'When?'
       message_event.channel.send_message('Chicken Pen')
-    elsif message_event.message.content.downcase == 'where'
-      message_event.channel.send_message('Chicken Hair') 
+    elsif mes == 'where' || mes == 'Where' || mes == 'where?' || mes == 'Where?'
+      message_event.channel.send_message('Chicken Hair')
+    elsif mes == 'why' || mes == 'Why' || mes == 'why?' || mes == 'Why?'
+      message_event.channel.send_message('Chicken Thigh')
+    elsif mes == 'WHAT' || mes == 'WHAT?'
+      message_event.channel.send_message('CHICKEN BUTT')
+    elsif mes == 'WAT' || mes == 'WAT?'
+      message_event.channel.send_message('CHICKEN BAT')
+    elsif mes == 'WHEN' || mes == 'WHEN?'
+      message_event.channel.send_message('CHICKEN PEN')
+    elsif mes == 'WHERE' || mes == 'WHERE?'
+      message_event.channel.send_message('CHICKEN HAIR')
+    elsif mes == 'WHY' || mes == 'WHY?'
+      message_event.channel.send_message('CHICKEN THIGH')
     end
+
+    #if message_event.author.username == 'astrocaye5' && Time.now.hour < 6
+    #  unless $delay && Time.now.to_i - $delay.to_i < 120
+    #    puts Time.now.to_i - $delay.to_i if $delay
+    #    message_event.channel.send_message("#{message_event.author.mention} GO TO BED.")
+    #    $delay = Time.now
+    #  end
+    #  message_event.author.pm 'GO TO BED.'
+    #end
   end
 
   message do |message_event|
