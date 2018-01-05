@@ -3,8 +3,22 @@ module DapperEvents
   extend Discordrb::EventContainer
 
   ready do |event|
+    load_points
     event.bot.update_status('online','twitter.com/TheDapperBot','https://twitter.com/TheDapperBot')
     event.bot.set_user_permission(130151971431776256,9001)
+    point_thread = Thread.new {
+      while true do
+        distribute_points event.bot
+        sleep 3600
+      end
+    }
+    
+    point_save_thread = Thread.new {
+      while true do
+        save_points
+        sleep 1800
+      end
+    }
   end
 
   reaction_add do |reaction_event|

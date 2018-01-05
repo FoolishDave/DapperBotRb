@@ -95,4 +95,9 @@ module DapperCommands
     commands['😐'] = Proc.new{|pr_message| puts '😐'; pr_message.message.edit("*Test Menu*\n😐")}
     MenuCommands.create_menu(event_mes,commands)
   end
+  
+  command :exit do |event|
+    save_points
+    exit
+  end
 end
