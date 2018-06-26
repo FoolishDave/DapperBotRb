@@ -3,27 +3,31 @@ module DapperEvents
   extend Discordrb::EventContainer
 
   ready do |event|
-    load_points
     event.bot.update_status('online','twitter.com/TheDapperBot','https://twitter.com/TheDapperBot')
     event.bot.set_user_permission(130151971431776256,9001)
-    point_thread = Thread.new {
-      while true do
-        distribute_points event.bot
-        sleep 3600
-      end
-    }
-    
-    point_save_thread = Thread.new {
-      while true do
-        save_points
-        sleep 1800
-      end
-    }
   end
 
   reaction_add do |reaction_event|
     MenuCommands.execute_command(reaction_event,reaction_event.emoji.name) unless reaction_event.user.id == 172421632223084545
   end
+
+  voice_state_update do |voice_event|
+    next unless $jordan_channel
+    if voice_event.user.id == 129667954529796097
+      new_channel_id = voice_event.channel ? voice_event.channel.id : nil
+      unless new_channel_id == $jordan_current_voice
+        $jordan_current_voice = new_channel_id
+        if voice_event.old_channel && $jordan_last_channel
+          voice_event.old_channel.name = $jordan_last_channel
+        end
+        if voice_event.channel
+          $jordan_last_channel = voice_event.channel.name
+          voice_event.channel.name = ["Jordan's ASMR", "Slurp Central", "Jordan's Assmar", "Jordan's Asthma", "Jordan's Ass", "Jorbas", "Munch munch mumble mumble", "Jorb's Sleepytime Mumble Town", "Channel With Jordan"].sample
+        end
+      end
+    end
+  end
+
 
   message do |message_event|
 

@@ -7,7 +7,7 @@ class MenuCommands
     @@open_menus[message.id] = menu_options
   end
 
-  def self.execute_command(event,option)
+  def self.execute_command(event, option)
     puts 'executing command for ' + option
     puts event.message.id
     puts @@open_menus[event.message.id]

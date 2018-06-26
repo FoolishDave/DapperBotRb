@@ -79,8 +79,85 @@ module DapperVoice
     'You are already dead.'
   end
 
+  command :DoNotUse do |event|
+    voice_channel = event.user.voice_channel
+    next unless voice_channel
+    event.bot.voice_connect(voice_channel)
+    event.bot.voice(voice_channel).volume = 0.5
+
+    event.voice.play_file('dont.wav')
+    event.voice.destroy
+    'Why.'
+  end
+
+  command :HARASSMENT do |event|
+    voice_channel = event.user.voice_channel
+    next unless voice_channel
+    event.bot.voice_connect(voice_channel)
+    event.bot.voice(voice_channel).volume = 1
+
+    event.voice.play_file('SEXUAL HARASSMENT.mp3')
+    event.voice.destroy
+    "DON'T TOUCH ME!!!"
+  end
+
+  command :nut do |event|
+    voice_channel = event.user.voice_channel
+    next unless voice_channel
+    event.bot.voice_connect(voice_channel)
+    event.bot.voice(voice_channel).volume = 0.5
+
+    event.voice.play_file('nut.wav')
+    event.voice.destroy
+    "EUUUUUUNNNNNNNGGGGGHHHH"
+  end
+
   command :leave do |event|
     event.voice.destroy
     'Bye Felicia.'
+  end
+
+  command :CanYou do |event|
+    voice_channel = event.user.voice_channel
+    next unless voice_channel
+    event.bot.voice_connect(voice_channel)
+    event.bot.voice(voice_channel).volume = 0.5
+
+    event.voice.play_file('cannut.wav')
+    event.voice.destroy
+    "Yes ( ͡° ͜ʖ ͡°)"
+  end
+
+  command :women do |event|
+    voice_channel = event.user.voice_channel
+    next unless voice_channel
+    event.bot.voice_connect(voice_channel)
+    event.bot.voice(voice_channel).volume = 0.5
+
+    event.voice.play_file('women.wav')
+    event.voice.destroy
+    nil
+  end
+
+  command :WhatsForDinner do |event|
+    voice_channel = event.user.voice_channel
+    next unless voice_channel
+    event.bot.voice_connect(voice_channel)
+    event.bot.voice(voice_channel).volume = 0.5
+
+    event.voice.play_file('eat ass.wav')
+    event.voice.destroy
+    "( ͡° ͜ʖ ͡°)"
+  end
+
+  command :Western do |event|
+    voice_channel = event.user.voice_channel
+    next unless voice_channel
+    event.bot.voice_connect(voice_channel)
+    event.bot.voice(voice_channel).volume = 0.5
+
+    event.voice.play_file('the western one.wav')
+    event.voice.destroy
+    "( ͡° ͜ʖ ͡°)"
   end
 end

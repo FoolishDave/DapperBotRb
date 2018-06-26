@@ -8,7 +8,6 @@ require_relative 'command_container'
 require_relative 'event_container'
 require_relative 'voice_container'
 require_relative 'imprisonment_container'
-require_relative 'points_container'
 def tweet(mes)
   if mes.length > 140
     puts 'could not tweet, too many characters in: ' + mes
@@ -83,82 +82,13 @@ def do_punishment(accused,message)
   save_jail_times
 end
 
-def modify_points(serverid, userid, newpoints)
-  load_points
-  $points[serverid] = {} unless $points[serverid]
-  $points[serverid][userid] ? $points[serverid][userid] += newpoints : $points[serverid][userid] = newpoints
-  $points[serverid][userid] = 0 if $points[serverid][userid] < 0
-  File.open('points.json','w') do |file|
-    file.write $points.to_json
-  end
-end
 
-def get_points(serverid, userid)
-  load_points
-  $points[serverid] = {} unless $points[serverid]
-  $points[serverid][userid] = 0 unless $points[serverid][userid]
-  $points[serverid][userid]
-end
-
-def load_points
-  return if $points
-  puts 'Loading in points.'
-  File.open('points.json', 'a+') do |file|
-    file_content = file.read
-    file_content = '{}' and file << '{}' if file_content.empty?
-    $points = JSON.parse file_content
-  end
-end
-
-def pointname(serverid)
-  load_points
-  $points[serverid] = {} unless $points[serverid]
-  $points[serverid]['name'] = 'points' unless $points[serverid]['name']
-  $points[serverid]['name']
-end
-
-def set_pointname(serverid, name)
-  load_points
-  $points[serverid] = {} unless $points[serverid]
-  $points[serverid]['name'] = name
-  File.open('points.json','w') do |file|
-    file.write $points.to_json
-  end
-end
-
-def get_sorted_server_points(serverid)
-  load_points
-  $points[serverid] = {} unless $points[serverid]
-  serv_points = $points[serverid].clone
-  serv_points.delete('name')
-  serv_points.sort_by {|k,v| v}.reverse
-end
-
-def distribute_points(bot)
-  load_points
-  bot.servers.each do |id, server|
-    server.online_members(include_bots: false).each do |online|
-      $points[server.id.to_s] = {} unless $points[server.id.to_s]
-      $points[server.id.to_s][online.id.to_s] = 0 unless $points[server.id.to_s][online.id.to_s]
-      $points[server.id.to_s][online.id.to_s] += 1
-    end
-  end
-end
-
-def save_points
-  load_points
-  puts 'Saving Points.'
-  File.open('points.json','w') do |file|
-    file.write $points.to_json
-  end
-end
-
+$jordan_channel = false
 $twitter_client = Twitter::REST::Client.new({:consumer_key => configatron.twitter_cons_key, :consumer_secret => configatron.twitter_cons_sec, :access_token => configatron.twitter_token, :access_token_secret => configatron.twitter_token_sec})
 
 bot = Discordrb::Commands::CommandBot.new token: configatron.token, client_id: 172421632223084545, :prefix => configatron.prefixes, :spaces_allowed => true
 bot.include! DapperEvents
 bot.include! DapperCommands
 bot.include! DapperVoice
-bot.include! DapperPoints
 bot.include! ImprisonmentContainer
 bot.run

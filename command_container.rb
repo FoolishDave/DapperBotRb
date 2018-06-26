@@ -65,6 +65,15 @@ module DapperCommands
     "Hey #{person} you fucker #{event.user.mention} wants you to get the fuck in here to #{args.join(' ')}."
   end
 
+  command :ToggleJordan do |event|
+    $jordan_channel = !$jordan_channel
+    if $jordan_channel
+      "You've enabled Jordan."
+    else
+      "Jordan has been disabled."
+    end
+  end
+
   command :DeclareGay do |event, *person|
     member = event.server.member(person.join(' ')[/\d+/].to_i)
     if member
@@ -86,6 +95,16 @@ module DapperCommands
 
   command :eval, permission_level: 9001, permission_messasge: "Don't use this please." do |event, evaluate_me|
     eval evaluate_me
+  end
+
+  command :roll do |*arg|
+    res = ''
+    puts arg
+    dice = arg[1].split('d')
+    for i in 0...Integer(dice[0])
+      res += "#{Random.rand(1..Integer(dice[1])).to_s} "
+    end
+    res
   end
 
   command :TestMenu do |event|
